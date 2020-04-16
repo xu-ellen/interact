@@ -1,0 +1,7 @@
+{
+  "name": "interact",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
