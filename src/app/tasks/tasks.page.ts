@@ -33,21 +33,17 @@ export class TasksPage implements OnInit {
   }
 
   async finishTask(event, task) {
-    let isChecked = event.detail.checked;
+    // Delete the task
+    await this.storage.get("tasks").then(tasks => {
+      tasks = tasks.filter(function(e) { return e !== task })
+      this.storage.set("tasks", tasks);
+      this.tasks = tasks;
+    });
 
-    if (isChecked) {
-      // Delete the task
-      await this.storage.get("tasks").then(tasks => {
-        tasks = tasks.filter(function(e) { return e !== task })
-        this.storage.set("tasks", tasks);
-        this.tasks = tasks;
-      });
-
-      // Add point for user
-      await this.storage.get("points").then(points => {
-        this.storage.set("points", points + 1);
-      });
-    }
+    // Add point for user
+    await this.storage.get("points").then(points => {
+      this.storage.set("points", points + 1);
+    });
   }
 
   async deleteTasks() {
