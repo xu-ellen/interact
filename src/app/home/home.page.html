@@ -6,8 +6,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-toolbar>
-    <ion-title>Points: {{ points }}</ion-title>
-  </ion-toolbar>
-  <ion-title>Milestone: {{ milestone }}</ion-title>
+  <img class="logo" src="assets/interact.png" alt="">
+  <progress-bar [progress]="(points / milestone) * 100" [color]="'#105086'"></progress-bar>
+  <div class="stats">
+    <span class="left"><strong>Points:</strong> {{ points }}</span>
+    <span class="right"><strong>Next Milestone:</strong> {{ milestone }}</span>
+  </div>
 </ion-content>

@@ -1,0 +1,13 @@
+.logo {
+  width: 100%;
+}
+
+.stats {
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.right {
+  justify-self: flex-end;
+}
