@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { ModalController } from '@ionic/angular';
 import { AddTaskModalPage } from '../modals/add-task-modal/add-task-modal.page';
-import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-tasks',
@@ -12,7 +11,7 @@ import { NgZone } from '@angular/core';
 export class TasksPage implements OnInit {
   public tasks = [];
 
-  constructor(public modalController: ModalController, private storage: Storage, private zone: NgZone) { }
+  constructor(public modalController: ModalController, private storage: Storage) { }
 
   ngOnInit() {
     this.getTasks();
@@ -33,7 +32,7 @@ export class TasksPage implements OnInit {
     await this.storage.get("tasks").then(tasks => this.tasks = tasks)
   }
 
-  async deleteTask(event, task) {
+  async finishTask(event, task) {
     let isChecked = event.detail.checked;
 
     if (isChecked) {
@@ -41,9 +40,13 @@ export class TasksPage implements OnInit {
       await this.storage.get("tasks").then(tasks => {
         tasks = tasks.filter(function(e) { return e !== task })
         this.storage.set("tasks", tasks);
+        this.tasks = tasks;
       });
-    } else {
-      this.addTask(task);
+
+      // Add point for user
+      await this.storage.get("points").then(points => {
+        this.storage.set("points", points + 1);
+      });
     }
   }
 
