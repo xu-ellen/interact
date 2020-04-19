@@ -1,3 +1,6 @@
+
+Demo images at bottom of ReadMe
+
 # Inspiration #
 During this challenging time of the coronavirus pandemic, students all over the world are at homes suffering from unproductivity. Due to the increased degree of personal freedom from traditional schooling to online education, many students have a lack of motivation to complete assignments and keep up with their school work. To help boost overall productivity and quality of education, we have created an interactive task application called InterACT based on a point and milestone system to motivates students to follow through with their plans. This app allows students to keep track of the tasks they should complete during the school day and uses a point and award system to motivate them to follow through with their plans. Without the point system, students may not feel motivated to complete their tasks or they may forget about them. By making productivity rewarding and interactive, students will feel a sense of accomplishment each time they complete tasks to get more points and reach new milestones.
 
@@ -15,3 +18,6 @@ Given more time, we plan to play around more with the speech-to-text feature, th
 
 # Built with #
 Ionic, Angular, Capacitor, Typescript, HTML, SASS
+
+# Demo Images #
+![](images/Screenshot%202020-04-18%2015.28.59.png)
